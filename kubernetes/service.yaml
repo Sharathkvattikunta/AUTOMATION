@@ -1,0 +1,14 @@
+cat > kubernetes/service.yaml << 'EOF'
+apiVersion: v1
+kind: Service
+metadata:
+  name: cicd-test-app
+spec:
+  selector:
+    app: cicd-test-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
+  type: LoadBalancer
+EOF
